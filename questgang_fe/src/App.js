@@ -2,7 +2,11 @@ import logo from './logo.svg';
 import background from './qg_forest.jpg';
 import './App.css';
 import React, { Component } from 'react';
-
+import Icon from './Icon.js';
+import Sprite from './sprite1.png';
+import Sprite2 from './sprite2.png';
+import Sprite3 from './sprite3.png';
+import LoginSignup from './Components/LoginSignup/LoginSignup';
 
 function backgroundStyle() {
   return {
@@ -20,23 +24,32 @@ function backgroundStyle() {
 }
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Quest Gang, see us in the forest you better run.
-        </p>
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="App">
+        <header className="App-header">
+          <LoginSignup />
+
+          <Icon name = "Rogue" sprite = {Sprite}/>
+          <Icon name = "Wizard" sprite = {Sprite2}/>
+          <Icon name = "Cleric" sprite = {Sprite3}/>
+
+          <p>
+            Quest Gang, see us in the forest you better run.
+          </p>
+        </header>
+      </div>
+    </>
   );
 }
 
 export default App;
+
+{/* <img src={logo} className="App-logo" alt="logo" /> */}
+{/* <a
+className="App-link"
+href="https://reactjs.org"
+target="_blank"
+rel="noopener noreferrer"
+>
+Learn React
+</a> */}

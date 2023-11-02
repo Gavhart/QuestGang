@@ -7,29 +7,19 @@ import Sprite from './sprite1.png';
 import Sprite2 from './sprite2.png';
 import Sprite3 from './sprite3.png';
 import LoginSignup from './Components/LoginSignup/LoginSignup';
+import ClassList from './ClassList';
+const Classes = getAllClasses();
 
-function backgroundStyle() {
-  return {
-    backgroundImage: `${background}`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    height: '100vh',
-    width: '100vw',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    zIndex: '-1',
-  }
-}
+
 function App() {
   return (
     <>
       <div className="App">
         <header className="App-header">
           <LoginSignup />
+          
 
-          <Icon name = "Rogue" sprite = {Sprite}/>
+          <Icon name = {Classes.ClassList} sprite = {Sprite}/>
           <Icon name = "Wizard" sprite = {Sprite2}/>
           <Icon name = "Cleric" sprite = {Sprite3}/>
 

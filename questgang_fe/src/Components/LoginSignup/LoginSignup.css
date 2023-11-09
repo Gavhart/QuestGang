@@ -14,14 +14,16 @@
     margin-top: 30px;
 }
 .text{
-    color: #3c009d;
+    color: #ffffff;
+    /* background-color: #000000; */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 48px;
     font-weight: 700;
 }
 .underline{
     width: 61px;
     height: 6px;
-    background: #3c009d;
+    background: #696969;
     border-radius: 9px;
 }
 .inputs{
@@ -72,7 +74,7 @@
     width: 220px;
     height: 59px;
     color: #fff;
-    background: #4c00b4;
+    background: #696969;
     border-radius: 50px;
     font-size: 19px;
     font-weight: 700;

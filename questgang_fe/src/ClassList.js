@@ -1,5 +1,7 @@
-import Classes from "./API/classes";
+import FetchWizClass from "./API/classes";
 
-const classes = getAllClasses();
+const classes = FetchWizClass
 
-export default ClassList;
+console.log(classes)
+
+export default classes;

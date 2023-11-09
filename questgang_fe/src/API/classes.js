@@ -1,18 +1,30 @@
-import axios from 'axios'
+import axios from 'axios';
+import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
-export default class Classes {
+function FetchWizClass() {
+  const [wizClass, setWizClass] = useState([])
 
-    getAllClasses(classId) {
-        const classes = axios.get('http://localhost:8080/classes/getAllClasses?classId=' + classId)
-        return classes
-    }
+  useEffect(() => {
+    axios.get('https://questgangapi.onrender.com/userClasses?classId=2')
+      .then(res => {setWizClass(res.data)})
+      .catch(err => console.log(err))
+  
+  }, [])
 
-    createClass(body) {
-        const response = axios.post('http://localhost:8080/classes/createClass', body)
-        return classes
-    }
-
-    getClass(classId) {}
-    
-
+  console.log(wizClass)
+  return(
+    wizClass.className
+    // <div>
+    //   <ul>
+    //     {wizClass.map((list, index) => (
+    //       <li key={index}>{list.id} | {list.name}</li>
+    //         ))}
+    //   </ul>
+    // </div>
+  )
 }
+
+
+export default FetchWizClass;

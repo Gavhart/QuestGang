@@ -7,8 +7,11 @@ import Sprite from './sprite1.png';
 import Sprite2 from './sprite2.png';
 import Sprite3 from './sprite3.png';
 import LoginSignup from './Components/LoginSignup/LoginSignup';
-import ClassList from './ClassList';
-const Classes = getAllClasses();
+import FetchWizClass from './API/classes';
+// import classes from './ClassList';
+// const WizClass = classes.name;
+
+// console.log(WizClass);
 
 
 function App() {
@@ -18,8 +21,9 @@ function App() {
         <header className="App-header">
           <LoginSignup />
           
+          <FetchWizClass />
 
-          <Icon name = {Classes.ClassList} sprite = {Sprite}/>
+          <Icon name = "Rogue" sprite = {Sprite}/>
           <Icon name = "Wizard" sprite = {Sprite2}/>
           <Icon name = "Cleric" sprite = {Sprite3}/>
 

@@ -8,6 +8,7 @@ import Sprite2 from './sprite2.png';
 import Sprite3 from './sprite3.png';
 import LoginSignup from './Components/LoginSignup/LoginSignup';
 import FetchWizClass from './API/classes';
+
 // import classes from './ClassList';
 // const WizClass = classes.name;
 

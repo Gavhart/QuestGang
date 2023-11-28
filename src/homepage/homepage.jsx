@@ -7,6 +7,7 @@ function HomePage() {
   const [playerStats, setPlayerStats] = useState(null);
   const [storeItems, setStoreItems] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     // Simulated fetch for player stats and store items
@@ -53,7 +54,7 @@ function HomePage() {
 
   return (
     <div className="home-page">
-      <h1>Welcome to Our React App!</h1>
+      <h1>Welcome to QuestGang</h1>
 
       <div className="player-stats">
         {playerStats ? (

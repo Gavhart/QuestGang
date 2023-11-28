@@ -32,6 +32,8 @@ function App() {
         {isLoggedIn && (
           <p>
             Quest Gang, see us in the forest you better run.
+            
+
           </p>
         )}
       </header>

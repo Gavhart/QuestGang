@@ -6,7 +6,8 @@ import Sprite2 from './sprite2.png';
 import Sprite3 from './sprite3.png';
 import LoginSignup from './Components/LoginSignup/LoginSignup';
 import FetchWizClass from './API/classes';
-import HomePage from './Components/HomePage/HomePage'; // Import HomePage
+import HomePage from './homepage/homepage'; 
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status

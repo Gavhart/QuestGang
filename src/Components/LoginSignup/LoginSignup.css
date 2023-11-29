@@ -84,3 +84,15 @@
         background: #eaeaea;
         color: #676767;
     }
+    .input {
+        position: relative;
+      }
+      
+    .required {
+        color: red;
+        position: absolute;
+        right: 10px; /* Adjust as necessary */
+        top: 50%;
+        transform: translateY(-50%);
+      }
+            

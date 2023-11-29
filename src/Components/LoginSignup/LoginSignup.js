@@ -50,6 +50,7 @@ const LoginSignup = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              <span className="required">*</span>
             </div>
           )}
           <div className="input">
@@ -60,6 +61,7 @@ const LoginSignup = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
+            <span className="required">*</span>
           </div>
           <div className="input">
             <img src={password_icon} alt="Password Icon" />
@@ -69,11 +71,12 @@ const LoginSignup = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <span className="required">*</span>
           </div>
           {error && <div className="error-message">{error}</div>}
           {action === "Login" && (
             <div className="forgot-password">
-              Lost Password? <span>Click Here!</span>
+              <a href="/">Forgot Password?, too bad we dont have this feature yet</a>
             </div>
           )}
         </div>
@@ -81,6 +84,8 @@ const LoginSignup = () => {
           <button
             type="submit"
             className={action === "Login" ? "submit gray" : "submit"}
+            
+            
           >
             Submit
           </button>

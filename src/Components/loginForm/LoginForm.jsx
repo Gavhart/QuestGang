@@ -20,17 +20,17 @@ const LoginForm = props => {
   const onSubmitForm = e => {
     e.preventDefault();
     alert(JSON.stringify(form, null, 2));
-    axios.put("http://localhost:80/signup", form)
+    axios.post("http://localhost:80/signup", form)
   };
 
   return (
     <form className={styles.form} onSubmit={onSubmitForm}>
       <div className={styles.formGroup}>
-        <label className={styles.formLabel}>Email</label>
+        <label className={styles.formLabel}>Username</label>
         <input
           className={styles.formField}
           type="text"
-          aria-label="Email field"
+          aria-label="Username field"
           name="email"
           value={form.email}
           onChange={onUpdateField}

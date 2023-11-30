@@ -13,7 +13,7 @@ function FetchWizClass() {
   
   }, [])
 
-  console.log(wizClass)
+  // console.log(wizClass)
   return(
     wizClass.className
     // <div>

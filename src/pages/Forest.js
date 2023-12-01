@@ -8,7 +8,7 @@ function Forest() {
     useEffect(() => {
         const fetchQuestData = async () => {
             try {
-                const response = await axios.put("http://localhost:80/character/status?username=taddecker");
+                const response = await axios.get("http://localhost:80/quest/choice");
                 setQuest(response.data);
             } catch (error) {
                 console.error("Error fetching quest data:", error);
@@ -20,16 +20,17 @@ function Forest() {
 
     return (
         <div className="forest-container">
-            <h1>Forest Quest</h1>
+            <h1>Battle Grounds</h1>
             {quest ? (
                 <div className="quest-box">
-                    <h2 className="quest-action">{quest.actions}</h2>
-                    <p className="quest-status">{quest.userStatus}</p>
+                    <h2>{quest.name}</h2>
+                    <p className="quest-description">{quest.description}</p>
+                    <p className="quest-enemy">Enemy: {quest.enemy}</p>
                     <p className="quest-reward">Reward: {quest.reward}</p>
                     <button className="quest-button">Complete Quest</button>
                 </div>
             ) : (
-                <p>Loading quest...</p>
+                <p>Loading the battle...</p>
             )}
         </div>
     );

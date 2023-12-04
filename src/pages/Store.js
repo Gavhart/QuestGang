@@ -10,11 +10,19 @@ function Store() {
     const fetchData = async () => {
       try {
         const itemsResponse = await axios.get("http://localhost:80/store");
-        setItems(itemsResponse.data.slice(0, 3)); // Get only the first three items
+        if (itemsResponse?.data)
+            setItems(itemsResponse.data.slice(0, 3)); // Get only the first three items
+        else
+            setItems([]);
 
         // Fetch user gold
-        const goldResponse = await axios.get("http://localhost:80/user/gold");
-        setUserGold(goldResponse.data.gold); 
+        // const username = localStorage.getItem("username")
+        const username = "testUser"
+        const statusResponse = await axios.get(`http://localhost:80/character/status?username=${username}`);
+        if (statusResponse?.data?.gold)
+            setUserGold(statusResponse.data.gold) 
+        else
+            setUserGold(0);
       } catch (error) {
         console.error("Error fetching data:", error);
       }

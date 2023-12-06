@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Store from "./pages/Store";
 import Cave from "./pages/Cave";
 import Forest from "./pages/Forest";
-import Quest from "./pages/Quest";
+import Quest from "./pages/quest";
 
 
 

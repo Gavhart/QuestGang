@@ -1,0 +1,56 @@
+/* Quests Container Styles */
+.quests-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Quest List Styles */
+.quests-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Adds space between quest boxes */
+}
+
+/* Individual Quest Box Styles */
+.quest {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    background-color: #f7f7f7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quest:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Quest Name Styles */
+.quest h3 {
+    color: #343a40;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Quest Difficulty Styles */
+.quest p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 600px) {
+    .quests-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quest {
+        width: 90%;
+    }
+}

@@ -24,22 +24,6 @@ h1 {
     
 }
 
-.quest-box {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd; /* Light grey border */
-    border-radius: 40px; /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    background-color: grey; /* White background for the box */
-    text-align: left; /* Align text to the left */
-    width: 80vw;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40vh;
-}
 
 .quest-title {
     font-size: 1.5em;

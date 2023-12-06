@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Forest() {
+  const [form,setForm] = useState({
+    userId: "",
+    choice: ""
+  })
   const [userStatus, setUserStatus] = useState("NOT_IN_COMBAT");
 
   useEffect(() => {
@@ -10,7 +14,7 @@ function Forest() {
         const response = await axios.get("http://localhost:80/character/status?username=testUser");
         const jsonStatus = response.data.status;
         setUserStatus(jsonStatus.userStatus);
-        console.log("User Status:", jsonStatus.userStatus);
+        console.log("User Status:", jsonStatus);
       } catch (error) {
         console.error("Error fetching user status:", error);
       }
@@ -26,7 +30,7 @@ function Forest() {
       <h1>Forest</h1>
       {userStatus === "IN_QUEST" &&(
         <div className = "in_quest">
-            <button>Go Left</button>
+            <button>Go Left</button> 
             <button>Go Right</button>
         </div> 
        )}

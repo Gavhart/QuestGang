@@ -2,6 +2,7 @@
   text-align: center;
   background-image: url("../src/qg_forest.jpg");
   background-size: cover;
+  width: 100vw;
 }
 
 .App-logo {

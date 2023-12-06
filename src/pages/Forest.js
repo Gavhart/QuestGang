@@ -24,9 +24,18 @@ function Forest() {
   return (
     <div>
       <h1>Forest</h1>
-      {userStatus === "NOT_IN_QUEST" && <p>User is not in a quest.</p>}
-      <button>Run</button>
-      <button>Attack</button>
+      {userStatus === "IN_QUEST" &&(
+        <div className = "in_quest">
+            <button>Go Left</button>
+            <button>Go Right</button>
+        </div> 
+       )}
+       {userStatus === "IN_COMBAT" &&(
+        <div className="in_combat">
+           <button>Run</button>
+           <button>Attack</button>
+        </div>
+       )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ import LoginSignup from '../Components/LoginSignup/LoginSignup.jsx';
 import FetchWizClass from '../API/classes';
 
 
-function Homepage() {
+function Login() {
   return (
     <>
       <div className="App">
@@ -30,4 +30,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Login;

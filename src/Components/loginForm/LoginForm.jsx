@@ -5,9 +5,9 @@ import styles from "./LoginForm.module.css";
 
 const LoginForm = props => {
   const [form, setForm] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
+    name: "",
+    username: "",
+    password: ""
   });
 
   const onUpdateField = e => {
@@ -21,19 +21,30 @@ const LoginForm = props => {
   const onSubmitForm = e => {
     e.preventDefault();
     alert(JSON.stringify(form, null, 2));
-    axios.post("http://localhost:80/signup", form)
+    axios.post("http://localhost:80/character/signup", form)
   };
 
   return (
     <form className={styles.form} onSubmit={onSubmitForm}>
+      <div className={styles.formGroup}>
+        <label className={styles.formLabel}>Name</label>
+        <input
+          className={styles.formField}
+          type="name text"
+          aria-label="Name field"
+          name="name"
+          value={form.name}
+          onChange={onUpdateField}
+        />
+      </div>
       <div className={styles.formGroup}>
         <label className={styles.formLabel}>Username</label>
         <input
           className={styles.formField}
           type="text"
           aria-label="Username field"
-          name="email"
-          value={form.email}
+          name="username"
+          value={form.username}
           onChange={onUpdateField}
         />
       </div>
@@ -55,13 +66,13 @@ const LoginForm = props => {
           type="password"
           aria-label="Confirm password field"
           name="confirmPassword"
-          value={form.confirmPassword}
+          // value={form.confirmPassword}
           onChange={onUpdateField}
         />
       </div>
       <div className={styles.formActions}>
         <button className={styles.formSubmitBtn} type="submit">
-          Login
+          Sign Up
         </button>
       </div>
     </form>

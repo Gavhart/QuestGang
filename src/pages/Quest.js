@@ -5,15 +5,16 @@ import './quest.css';
 function Quest() {
         const [quests, setQuests] = useState([]);
         const [error, setError] = useState(null);
+        const [userId, setUserId] = useState("1701375677110566");
     
         useEffect(() => {
             const fetchQuests = async () => {
                 try {
-                    const response = await axios.get("http://localhost:80/quests/request?userId=17014836893499660&userLevel=1&numQuests=3");
+                    const response = await axios.put("http://localhost:80/quests/request?userId="+userId);
                     if (response?.data) {
                         // Randomly select three quests
-                        const shuffled = response.data.sort(() => 0.5 - Math.random());
-                        setQuests(shuffled.slice(0, 3));
+                        console.log (response.data);
+                        setQuests(response.data.quests);
                     } else {
                         setQuests([]);
                     }

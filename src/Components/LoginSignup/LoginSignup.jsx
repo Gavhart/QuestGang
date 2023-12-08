@@ -36,6 +36,8 @@ const onUpdateField = e => {
 
       const token = response.data.token
       localStorage.setItem('token', token)
+      localStorage.setItem('userId', response.data.userId)
+      localStorage.setItem('username', response.data.username)
       setLoggedIn(true)
       navigate('/Store')
     } catch (err) {

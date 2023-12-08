@@ -6,6 +6,7 @@ import Store from "./pages/Store";
 import Cave from "./pages/Cave";
 import Forest from "./pages/Forest";
 import Quest from "./pages/Quest";
+import Mountain from "./pages/Mountain";
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Route path="/Cave" element={<Cave />} />
       <Route path="/Forest" element={<Forest />} />
       <Route path="/Quest" element={<Quest />} />
+      <Route path="/Mountain" element={<Mountain />} />
     </Routes>
   );
 }

@@ -38,7 +38,7 @@ function Quest() {
             </div>
             {/* Static message under quest boxes */}
             <div className="quest-message">
-                {quests.length > 0 ? "Select a quest to continue" : "No quests available at the moment"}
+                {quests.length > 0 ? "Select a quest to continue" : "Cannot accept a request"}
             </div>
         </div>
     );

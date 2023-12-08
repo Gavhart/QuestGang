@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 function Forest() {
+  const navigate = useNavigate()
   const [form,setForm] = useState({
     userId: "",
     choice: ""
@@ -10,6 +12,7 @@ function Forest() {
   const [userId, setUserId] = useState();
   const [battleMessage, setBattleMessage] = useState()
   const [choices, setChoices] = useState()
+  const [location, setLocation] = useState()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +23,8 @@ function Forest() {
         setChoices(jsonStatus.choices)
         setUserStatus(jsonStatus.userStatus);
         setUserId(getUserId)
-        console.log(response.data)
+        setLocation(jsonStatus.locationId)
+        console.log("location: ", location)
         // console.log("User Status:", jsonStatus);
         console.log("userId: ", userId);
         console.log(choices)
@@ -38,8 +42,11 @@ const GoLeft = async () =>{
     choice: "2"
   }
 
-  await axios.put("http://localhost:80/quest/choice", gl_form)
-  // console.log(GLMessage)
+  const GLMessage = await axios.put("http://localhost:80/quest/choice", gl_form)
+  console.log("GLMessage location attemp: ", GLMessage.data.status.locationId)
+  console.log("GLMessage: ", GLMessage)
+  navigate("/Cave")
+
 }
 
 const GoRight = async () =>{
@@ -54,12 +61,22 @@ const RunAway = async() =>{
 }
 const Attack = async () =>{
   const form = {
-    userId: userId,
+    userId: "1701375677110566",
     action: "attack"
   }
   const attackResponse = await axios.put("http://localhost:80/quest/action", form)
+  console.log(attackResponse)
+  const status = attackResponse.data.status
   setBattleMessage(attackResponse.data.message)
-  // console.log(attackResponse.data.message)
+  if(attackResponse.data.monsters.hp <= 0){
+      setTimeout(() => {
+        setUserStatus(status.userStatus);
+    }, 2000)
+  }
+  else{
+    setUserStatus(status.userStatus)
+  }
+  // console.log("attack resp: ", attackResponse.data.status.userStatus)
 }
 
   console.log("User Status: ", userStatus);

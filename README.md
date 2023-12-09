@@ -4,7 +4,7 @@ We made a headless fantasy adventure game where the player can create a characte
 
 This game is entirely headless, meaning that it is playable without a frontend. Users can construct their own frontend to their liking to play the game, or can play using only using API calls. The backend contains all the game logic, so users should not be able to cheat by misusing the API.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/Eu19p0ufZsU)
 
 # Development Environment
 The language of choice for this project is JavaScript. We used React for the front end and MongoDB for the back end. We used Visual Studio Code as our IDE. We used GitHub for version control and collaboration. We used Render to deploy our application.

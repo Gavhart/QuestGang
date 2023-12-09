@@ -29,7 +29,7 @@ const onUpdateField = e => {
 
   const onSubmitForm =async e => {
     e.preventDefault();
-    alert(JSON.stringify(form, null, 2));
+    // alert(JSON.stringify(form, null, 2));
     try{
       const response = await axios.post("http://localhost:80/character/login", form)
       console.log(response)

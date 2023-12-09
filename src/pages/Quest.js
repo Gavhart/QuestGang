@@ -12,8 +12,11 @@ function Quest() {
 
     useEffect(() => {
         const fetchQuests = async () => {
+          const fq_form = {
+            userId: "1701375677110566"
+          }
             try {
-                const response = await axios.put("http://localhost:80/quests/request?userId="+userId);
+                const response = await axios.put("http://localhost:80/quests/request", fq_form);
                 if (response?.data) {
                     setQuests(response.data.quests);
                 } else {
@@ -29,16 +32,22 @@ function Quest() {
     }, []);
 
     const selectQuest = (quest) => async () => {
+      const sq_form = {
+        userId: "1701375677110566",
+        questId: quest.questId
+      }
         try {
             console.log(quest)
-            const response = await axios.put("http://localhost:80/quests/accept?userId="+userId+"&questId="+quest.questId);
+            const response = await axios.put("http://localhost:80/quests/accept", sq_form);
             if (response?.status === 200) {
                 if (quest.locations[0] === "Cave")
-                    navigate("/Cave")
+                    navigate("/Forest")
                 else if (quest.locations[0] === "Forest")
                     navigate("/Forest")
                 else if (quest.locations[0] === "Mountain")
-                    navigate("/Mountain")
+                    navigate("/Forest")
+                else
+                    navigate("/Forest")
             }
         } catch (e) {
             console.error("Error accepting quest", e)

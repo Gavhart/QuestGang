@@ -29,13 +29,15 @@ const onUpdateField = e => {
 
   const onSubmitForm =async e => {
     e.preventDefault();
-    alert(JSON.stringify(form, null, 2));
+    // alert(JSON.stringify(form, null, 2));
     try{
       const response = await axios.post("http://localhost:80/character/login", form)
       console.log(response)
 
       const token = response.data.token
       localStorage.setItem('token', token)
+      localStorage.setItem('userId', response.data.userId)
+      localStorage.setItem('username', response.data.username)
       setLoggedIn(true)
       navigate('/Store')
     } catch (err) {

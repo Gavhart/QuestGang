@@ -1,61 +1,80 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import './quest.css';
 
 function Quest() {
-  const [quests, setQuests] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    const [quests, setQuests] = useState([]);
+    const [error, setError] = useState(null);
+    const [userId, setUserId] = useState("1701375677110566"); // username: testUser
 
-  useEffect(() => {
-    const fetchQuests = async () => {
-      try {
-        const response = await axios.put(
-          "http://localhost:80/quests/request?userId=17014836893499660&userLevel=1&numQuests=3"
-        );
-        console.log("Response:", response);
-        setQuests(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.error("Error fetching quests:", err);
-        setError(err);
-        setLoading(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchQuests = async () => {
+          const fq_form = {
+            userId: "1701375677110566"
+          }
+            try {
+                const response = await axios.put("http://localhost:80/quests/request", fq_form);
+                if (response?.data) {
+                    setQuests(response.data.quests);
+                } else {
+                    setQuests([]);
+                }
+            } catch (err) {
+                console.error("Error fetching quests:", err);
+                setError(err);
+            }
+        };
+
+        fetchQuests();
+    }, []);
+
+    const selectQuest = (quest) => async () => {
+      const sq_form = {
+        userId: "1701375677110566",
+        questId: quest.questId
       }
+        try {
+            console.log(quest)
+            const response = await axios.put("http://localhost:80/quests/accept", sq_form);
+            if (response?.status === 200) {
+                if (quest.locations[0] === "Cave")
+                    navigate("/Forest")
+                else if (quest.locations[0] === "Forest")
+                    navigate("/Forest")
+                else if (quest.locations[0] === "Mountain")
+                    navigate("/Forest")
+                else
+                    navigate("/Forest")
+            }
+        } catch (e) {
+            console.error("Error accepting quest", e)
+            // setError(e)
+        }
+        // localStorage.setItem('quest', JSON.stringify(quest));
     };
 
-    fetchQuests();
-  }, []);
+    if (error) return <div>Error loading quests: {error.message}</div>;
 
-  if (loading) return <div>Loading quests...</div>;
-  if (error) return <div>Error loading quests: {error.message}</div>;
-
-  return (
-    <div>
-      <h2>Available Quests</h2>
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
-        {quests.map((quest, index) => (
-          <div
-            key={index}
-            style={{
-              border: "1px solid black",
-              margin: "10px",
-              padding: "20px",
-            }}
-          >
-            <Link to={`/quest/${quest.id}`}>
-              {" "}
-              {/* Make sure your routing is set up correctly */}
-              <h3>{quest.title}</h3>
-              <p>{quest.description}</p>
-            </Link>
-          </div>
-        ))}
-      </div>
-      ''
-    </div>
-  );
-}
-
+    return (
+        <div className="quests-container">
+            <h2>Available Quests</h2>
+            <div className="quests-list">
+                {quests.map((quest, index) => (
+                    <div key={index} className="quest" onClick={selectQuest(quest)}>
+                        <h3>{quest.name}</h3>
+                        <p>{quest.difficulty}</p>
+                    </div>
+                ))}
+            </div>
+            {/* Static message under quest boxes */}
+            <div className="quest-message">
+                {quests.length > 0 ? "Select a quest to continue" : "Cannot accept a request"}
+            </div>
+        </div>
+    );
+                
+                }
 export default Quest;
